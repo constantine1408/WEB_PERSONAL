@@ -1,10 +1,10 @@
 <?php
 /**
- * CALCULADORA (PHP) - archivo includes/calculadora.php
+ * CALCULADORA CON (PHP) - archivo includes/calculadora.php
  * Lo carga index.php con require.
- *
+ 
  * Motor de la calculadora (PHP).
- *
+
  * Evalúa operaciones como "12+3×(4−1)" SIN usar eval(): es un pequeño
  * analizador que solo acepta números, + − × ÷, paréntesis, % y raíz cuadrada (√).
  * Cualquier otro texto se rechaza con un error.
@@ -26,7 +26,7 @@ final class Evaluador
         $this->largo = strlen($texto);
     }
 
-    /** Evalúa la operación y devuelve el resultado. Lanza ErrorCalculo si falla. */
+    /** Evalúa la operación y devuelve el resultado te Lanza ErrorCalculo si falla. */
     public static function evaluar(string $expresion): float
     {
         $expresion = trim($expresion);
@@ -38,7 +38,7 @@ final class Evaluador
             throw new ErrorCalculo('La operación es demasiado larga.');
         }
 
-        // Unifica los símbolos (la raíz √ pasa a 'r' para trabajar byte a byte)
+        // Unifica los símbolos (la raíz √ pasa a 'r' para trabajar byte a byte(ayuda con ia))
         $expresion = str_replace(
             ['×', '÷', '−', '–', ',', '√'],
             ['*', '/', '-', '-', '.', 'r'],
@@ -72,7 +72,7 @@ final class Evaluador
         return $this->pos < $this->largo ? $this->texto[$this->pos] : '';
     }
 
-    /**
+    /**CALCULOS
      * Suma y resta.
      * Devuelve [valor, esPorcentaje].
      */
@@ -84,7 +84,6 @@ final class Evaluador
             $this->pos++;
             [$der, $derPct] = $this->producto();
 
-            // Como en una calculadora de bolsillo: 200 + 10% = 220
             if ($derPct) {
                 $der = $valor * $der;
             }
@@ -146,7 +145,7 @@ final class Evaluador
         return [$valor, $esPct];
     }
 
-    /** Número, (expresión) o raíz cuadrada. */
+    /** Número, (expresión) o raíz cuadrada. realizado con ia*/
     private function primario(): float
     {
         $c = $this->actual();
@@ -179,7 +178,7 @@ final class Evaluador
     }
 }
 
-/** Da formato al número: quita ceros sobrantes (5.000 -> 5) y usa notación científica si es enorme. */
+/** Da formato al número: quita ceros sobrantes (5.000 -> 5) y usa notación científica si es muy grande. */
 function formatearNumero(float $n): string
 {
     if (is_nan($n) || is_infinite($n)) {
@@ -199,8 +198,7 @@ function formatearNumero(float $n): string
 }
 
 /* ============================================================
-   CALCULADORA (PHP): recibe la operación y responde en JSON.
-   Se ejecuta solo cuando el botón "=" envía datos a esta misma página.
+      Se ejecuta solo cuando el botón "=" envía datos a esta misma página.
    ============================================================ */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['expresion'])) {
     header('Content-Type: application/json; charset=utf-8');

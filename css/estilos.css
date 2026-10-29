@@ -1,3 +1,4 @@
+/*el proceso se sovento mediante uso de  CHAT GPT, CLAUDE*/
 :root {
   --fondo: #f1f5f9;
   --tarjeta: #ffffff;
@@ -300,24 +301,44 @@ main {
   transition: background 0.15s, transform 0.05s;
 }
 
-.tecla:hover { background: #cbd5e1; }
-.tecla:active { transform: scale(0.95); }
-.tecla:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+.tecla:hover {
+  background: #cbd5e1;
+}
 
-.tecla.fn { background: #cbd5e1; }
-.tecla.fn:hover { background: #b6c3d4; }
+.tecla:active {
+  transform: scale(0.95);
+}
+
+.tecla:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.tecla.fn {
+  background: #cbd5e1;
+}
+
+.tecla.fn:hover {
+  background: #b6c3d4;
+}
 
 .tecla.op {
   background: var(--primario);
   color: #ffffff;
 }
-.tecla.op:hover { background: var(--primario-hover); }
+
+.tecla.op:hover {
+  background: var(--primario-hover);
+}
 
 .tecla.igual {
   background: var(--exito);
   color: #ffffff;
 }
-.tecla.igual:hover { background: #15803d; }
+
+.tecla.igual:hover {
+  background: #15803d;
+}
 
 /* ---------- Contacto ---------- */
 .contacto {

@@ -1,28 +1,28 @@
 <?php
-require __DIR__ . '/includes/calculadora.php';
+require __DIR__ . '/includes/calculadora.php'; /* DIRECCION DE DONDE COJE LA CALCULADORA  */
 
 /* ============================================================
-   EDITA AQUÍ TUS DATOS PERSONALES
+    DATOS PERSONALES QUE MOSTRARA EN LA PAGINA REALIZADA CON AYUDA DE LA IA
    ============================================================ */
 $perfil = [
-    'nombre'      => 'Tu Nombre Completo',
+    'nombre'      => 'Edwin Moises Sanchez Sandoval',
     'titulo'      => 'Estudiante de Ingeniería de Software',
-    'descripcion' => 'Escribe aquí una breve presentación sobre ti: quién eres, qué estudias y qué te apasiona.',
-    'email'       => 'tu-correo@ejemplo.com',
-    'telefono'    => '+593 99 999 9999',
+    'descripcion' => 'Empatico, ayuda a los demas, le gusta aprender',
+    'email'       => 'sanchezconstantine@gmail.com',
+    'telefono'    => '+593 99 666 1142',
     'ciudad'      => 'Quito, Ecuador',
-    'github'      => 'https://github.com/tu-usuario',
-    'linkedin'    => 'https://www.linkedin.com/in/tu-usuario',
+    'github'      => 'https://github.com/constantine1408',
+    'instagram'   => 'https://www.instagram.com/constantine_edwin',
 ];
 
 $estudios = [
-    ['titulo' => 'Ingeniería de Software', 'lugar' => 'Tu Universidad', 'periodo' => '2024 - Actualidad'],
-    ['titulo' => 'Bachiller en Ciencias',  'lugar' => 'Tu Colegio',     'periodo' => '2018 - 2024'],
+    ['titulo' => 'Ingeniería de Software', 'lugar' => 'UNIANDES', 'periodo' => '2026 - Actualidad'],
+    ['titulo' => 'Bachiller en Ciencias',  'lugar' => 'RUMIÑAHUI',     'periodo' => ' 2009- 2015'],
 ];
 
-$habilidades = ['HTML', 'CSS', 'PHP', 'JavaScript', 'Git y GitHub', 'Trabajo en equipo'];
+$habilidades = ['HTML', 'CSS', 'PHP', 'Fotografiat', 'IA', 'Git y GitHub', 'Trabajo en equipo'];
 
-$intereses = ['Programación', 'Tecnología', 'Música', 'Deportes'];
+$intereses = ['Programación', 'Tecnología', 'Música', 'Deportes','Videojuegos', 'Lectura'];
 
 function e(string $texto): string
 {
@@ -61,7 +61,7 @@ function e(string $texto): string
       <a href="#calculadora" class="boton">Probar la calculadora</a>
     </section>
 
-    <!-- Sobre mí -->
+    <!-- Todo Sobre mí -->
     <section id="sobre-mi" class="seccion">
       <h2>Sobre mí</h2>
       <p><?= e($perfil['descripcion']) ?></p>
@@ -73,7 +73,7 @@ function e(string $texto): string
       </ul>
     </section>
 
-    <!-- Estudios -->
+    <!-- Campo de apartado estudios -->
     <section id="estudios" class="seccion">
       <h2>Estudios</h2>
       <div class="linea-tiempo">
@@ -87,7 +87,7 @@ function e(string $texto): string
       </div>
     </section>
 
-    <!-- Habilidades -->
+    <!-- Mis habilidades  -->
     <section id="habilidades" class="seccion">
       <h2>Habilidades</h2>
       <ul class="etiquetas">
@@ -97,10 +97,10 @@ function e(string $texto): string
       </ul>
     </section>
 
-    <!-- Calculadora (el cálculo lo hace PHP, al inicio de este mismo archivo) -->
+    <!-- Calculadora -->
     <section id="calculadora" class="seccion">
       <h2>Calculadora</h2>
-      <p>Usa los botones o el teclado de tu computador. Al pulsar <strong>=</strong>, la operación se calcula con PHP en el servidor.</p>
+      <p>puedes usar el teclado de tu computadora , la operación se calcula con PHP.</p>
 
       <div class="calc" id="calc">
         <div class="calc-pantalla">
@@ -135,7 +135,7 @@ function e(string $texto): string
       </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Contacto personal -->
     <section id="contacto" class="seccion">
       <h2>Contacto</h2>
       <ul class="contacto">
@@ -143,7 +143,7 @@ function e(string $texto): string
         <li><span>Teléfono</span> <?= e($perfil['telefono']) ?></li>
         <li><span>Ciudad</span> <?= e($perfil['ciudad']) ?></li>
         <li><span>GitHub</span> <a href="<?= e($perfil['github']) ?>" target="_blank" rel="noopener"><?= e($perfil['github']) ?></a></li>
-        <li><span>LinkedIn</span> <a href="<?= e($perfil['linkedin']) ?>" target="_blank" rel="noopener"><?= e($perfil['linkedin']) ?></a></li>
+        <li><span>Instagram</span> <a href="<?= e($perfil['instagram']) ?>" target="_blank" rel="noopener"><?= e($perfil['instagram']) ?></a></li>
       </ul>
     </section>
   </main>
@@ -154,12 +154,8 @@ function e(string $texto): string
 
   <script>
 /**
- * Calculadora sencilla.
- *  - Los botones (o el teclado del computador) arman la operación en pantalla.
- *  - Al pulsar "=" la operación se envía a esta misma página, donde PHP hace el
- *    cálculo y devuelve el resultado.
- *  - No se recarga la página, por eso la pantalla no salta.
- */
+ * Calculadora 
+  **/
 (function () {
   'use strict';
 
@@ -168,7 +164,7 @@ function e(string $texto): string
     return;
   }
 
-  var URL_PHP = window.location.href.split('#')[0].split('?')[0];  // esta misma página (PHP)
+  var URL_PHP = window.location.href.split('#')[0].split('?')[0];  // esta misma página (PHP) para ejecutar con el teclado del computador
   var elPrevia = document.getElementById('calc-expresion');
   var elPantalla = document.getElementById('calc-resultado');
 
@@ -176,7 +172,7 @@ function e(string $texto): string
   var ALIAS = { '-': '−', '*': '×', '/': '÷' };
 
   var expresion = '';     // operación que se está escribiendo
-  var previa = '';        // operación anterior, en pequeño ("7+8 =")
+  var previa = '';        // operación anterior, en pequeño ("7+8 =") para visualizar que operacion se introdujo
   var mensaje = '';       // mensaje de error
   var calculado = false;  // true justo después de pulsar "="
   var ocupado = false;    // esperando la respuesta del servidor
@@ -208,7 +204,7 @@ function e(string $texto): string
     var actual = numeroActual();
     if (actual === '0') {
       if (d === '0') {
-        return;                                  // evita 00, 000...
+        return;                                  // evita 00, 000...............
       }
       expresion = expresion.slice(0, -1) + d;    // 05 -> 5
       return;
@@ -260,7 +256,7 @@ function e(string $texto): string
     calculado = false;
   }
 
-  /* ---------- Comunicación con PHP ---------- */
+  /* ---------- Comunicación con PHP (si funciona la pagina)---------- */
 
   function evaluar(e) {
     var cuerpo = new URLSearchParams();
@@ -313,7 +309,7 @@ function e(string $texto): string
     elPantalla.classList.toggle('muy-largo', texto.length > 20);
   }
 
-  /* ---------- Entrada ---------- */
+  /* ---------- Entrada (teclado) ---------- */
 
   function pulsar(tecla) {
     if (ocupado) {
