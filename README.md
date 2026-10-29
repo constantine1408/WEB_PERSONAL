@@ -2,7 +2,7 @@
 
 Página web personal hecha con **HTML**, **CSS** y **PHP**. se hace en el servidor con PHP.
 
-**Tarea: Introducción a HTML**
+*Tarea: Introducción a HTML*
 
 Objetivo: Aplicar los conocimientos adquiridos sobre la instalación de dependencias, comprender la sintaxis básica y el manejo de variables en la creación de un script sencillo que realice operaciones básicas con HTML y CSS.
 
@@ -16,7 +16,7 @@ La tarea consiste en desarrollar una pagina web personal, en donde debe mostrar 
 ## Estructura
 
 ``` 
-├── index.php               # Página principal: datos personales y calculadora (HTML + JS)
+├── index.php               # Página principal: datos personales y calculadora (HTML, PHP)
 ├── css/
 │   └── estilos.css         # Estilos
 ├── includes/
@@ -27,14 +27,11 @@ La tarea consiste en desarrollar una pagina web personal, en donde debe mostrar 
 
 ## Cómo ejecutarla
 
-Necesitas PHP 8 o superior. Desde esta carpeta:
+Necesitas PHP 8 o superior. Desde esta carpeta: puede usar xampp, o ccualquier servidor web local directamente en tu computadora
 
-```bash o cualquier entorno
-php -S localhost:8000
+```bash 
+php -S localhost 
 ```
 
 Luego abre <http://localhost> en el navegador.
 
-## Personalizar
-
-Edita los arreglos `$perfil`, `$estudios`, `$habilidades` e `$intereses` donde dice "EDITA AQUÍ TUS DATOS PERSONALES" en `index.php`.
